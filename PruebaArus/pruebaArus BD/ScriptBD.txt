@@ -1,0 +1,59 @@
+-- Crear tabla temporal "empleados"
+CREATE TABLE empleados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50),
+    apellido VARCHAR(50),
+    departamento_id INT,
+    salario DECIMAL(10, 2)
+);
+
+-- Crear tabla temporal "departamentos"
+CREATE TABLE departamentos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50),
+    ubicacion VARCHAR(100)
+);
+
+-- Paso 1: Crear un empleado
+INSERT INTO empleados (nombre, apellido, departamento_id, salario)
+VALUES ('Juan', 'Perez', 1, 50000);
+
+-- Verificar que el empleado se haya insertado correctamente
+SELECT * FROM empleados WHERE nombre = 'Juan' AND apellido = 'Perez';
+
+-- Paso 2: Leer un empleado
+SELECT * FROM empleados WHERE id = 1;
+
+-- Paso 3: Actualizar un empleado
+UPDATE empleados SET salario = 55000 WHERE id = 1;
+
+-- Verificar que el salario se haya actualizado correctamente
+SELECT * FROM empleados WHERE id = 1;
+
+-- Paso 4: Eliminar un empleado
+DELETE FROM empleados WHERE id = 1;
+
+-- Intentar leer los datos del empleado eliminado
+SELECT * FROM empleados WHERE id = 1;
+
+-- Paso 5: Crear un departamento
+INSERT INTO departamentos (nombre, ubicacion)
+VALUES ('Ventas', 'Ciudad A');
+
+-- Verificar que el departamento se haya insertado correctamente
+SELECT * FROM departamentos WHERE nombre = 'Ventas';
+
+-- Paso 6: Leer un departamento
+SELECT * FROM departamentos WHERE id = 1;
+
+-- Paso 7: Actualizar un departamento
+UPDATE departamentos SET ubicacion = 'Ciudad B' WHERE id = 1;
+
+-- Verificar que la ubicación se haya actualizado correctamente
+SELECT * FROM departamentos WHERE id = 1;
+
+-- Paso 8: Eliminar un departamento
+DELETE FROM departamentos WHERE id = 1;
+
+-- Intentar leer los datos del departamento eliminado
+SELECT * FROM departamentos WHERE id = 1;
